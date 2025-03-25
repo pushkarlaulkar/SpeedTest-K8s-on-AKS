@@ -68,8 +68,8 @@ To install this app using Helm, perform below steps
   5. Run the command to install **SpeedTest**
 
      ```
-     helm install whisper ./helm --namespace speedtest --set domain_name=your_preferred_fqdn
+     helm install speedtest ./helm --namespace speedtest --set domain_name=your_preferred_fqdn
      ```
   6. Run `kubectl -n speedtest get ingress` to retrieve the IP. This may take some time to match with the **LoadBalancer** IP above. Point the domain name in your registrar to the IP address.
   7. Access the app using `https://your_domain_name`.
-  8. Uninstall the app using `helm uninstall whisper --namespace yopass`.
+  8. Uninstall the app using `helm uninstall speedtest --namespace speedtest`.
