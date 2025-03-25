@@ -16,6 +16,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: yopass
+                name: speedtest
                 port:
                   number: 8082
