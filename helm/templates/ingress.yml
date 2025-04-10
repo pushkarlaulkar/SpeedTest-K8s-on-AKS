@@ -4,13 +4,18 @@ metadata:
   name: speedtest-ingress
   namespace: speedtest
 spec:
+  {{- if eq .Values.ingressClassName "web-app-routing" }}
+  ingressClassName: webapprouting.kubernetes.azure.com
+  {{- else if eq .Values.ingressClassName "nginx" }}
   ingressClassName: nginx
+  {{- end }}  
   tls:
     - hosts:
         - {{ .Values.domain_name }}
       secretName: cert-tls
   rules:
-    - http:
+    - host: "{{ .Values.domain_name }}"
+      http:
         paths:
           - path: /
             pathType: Prefix
